@@ -1,19 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: tawazn-mysql-pv-claim
-  labels:
-    name: DohaQadi
-    app: tawazun
+  name: mysql-pv-claim
 spec:
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
-  volumeMode: Filesystem
-  storageClassName: standard
   resources:
     requests:
-      storage: 3Gi
-  selector:
-    matchLabels:
-      app: tawazun
-     
+      storage: 5Gi
