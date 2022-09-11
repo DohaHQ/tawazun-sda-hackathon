@@ -6,7 +6,6 @@ metadata:
     name: DohaQadi
     app: tawazun
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: tawazun
@@ -16,10 +15,8 @@ spec:
         app: tawazun
     spec:
       containers:
-        - name: tawazun
-          image: dohahq/tawazun:latest
-          ports:
-          - containerPort: 8080
+        - image: dohahq/tawazun:latest
+          name: tawazun
           env:
             - name: DB_URL
               value: tawazun-mysql-service
@@ -30,7 +27,9 @@ spec:
             - name: DB_USERNAME
               value: root  
             - name: DB_PASSWORD
-              value: DevOps2022 
+              value: DevOps2022
+          ports:
+            - containerPort: 8080
           
           
 
