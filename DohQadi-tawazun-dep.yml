@@ -15,7 +15,7 @@ spec:
         app: tawazun
     spec:
       containers:
-        - image: dohahq/tawazun:1.0
+        - image: dohahq/tawazun:latest
           name: tawazun
           env:
             - name: DB_URL
