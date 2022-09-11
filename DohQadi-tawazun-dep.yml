@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: DohQadi-tawazun-dep
+  labels:
+    name: DohaQadi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tawazun
+  template:
+    metadata:
+      labels:
+        app: tawazun
+    spec:
+      containers:
+        - image: dohahq/tawazun:1.0
+          name: tawazun
+          env:
+            - name: DB_URL
+              value: mysql-tawazun
+            - name: DB_PORT
+              value: '3306'  
+            - name: DB_NAME
+              value: tawazun  
+            - name: DB_USERNAME
+              value: root  
+            - name: DB_PASSWORD
+              value: DevOps2022 
+          ports:
+          - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /home
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          startupProbe:
+            httpGet:
+              path: /home
+              port: 8080
+            failureThrehold: 30
+            periodSeconds: 10
+
