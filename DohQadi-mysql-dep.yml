@@ -4,6 +4,7 @@ metadata:
   name: tawazun-mysql
   labels:
     name: DohaQadi
+    app: tawazun-mysql
 spec:
   replicas: 1
   selector:
@@ -17,8 +18,8 @@ spec:
         app: tawazun-mysql
     spec:
       containers:
-        - image: mysql:latest
-          name: mysql-tawazun
+        - image: mysql
+          name: twz-sql
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: DevOps2022
@@ -27,10 +28,10 @@ spec:
           ports:
             - containerPort: 3306
           volumeMounts:
-            - name: mysql-persistent-storage
+            - name: tawazn-mysql-persistent-storage
               mountPath: /var/lib/mysql
       volumes:
-        - name: mysql-persistent-storage
+        - name: tawazn-mysql-persistent-storage
           persistentVolumeClaim:
             claimName: tawazn-mysql-pv-claim
           

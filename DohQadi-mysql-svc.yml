@@ -4,6 +4,7 @@ metadata:
   name: tawazun-mysql-service
   labels:
     name: DohaQadi
+    app: tawazun-mysql-service
 spec:
   selector:
     app: mysql-tawazun

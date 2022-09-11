@@ -3,14 +3,16 @@ kind: PersistentVolume
 metadata:
   name: tawazn-mysql-pv
   labels:
+    app: tawazun
     name: DohaQadi
     type: local
 spec:
-  storageClassName: manual
   capacity:
     storage: 5Gi
+  volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
+  storageClassName: standard
   hostPath:
-    path: "/var/lib/mysql" 
+    path: "/tawazun/pv" 
   

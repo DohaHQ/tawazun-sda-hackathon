@@ -4,10 +4,16 @@ metadata:
   name: tawazn-mysql-pv-claim
   labels:
     name: DohaQadi
+    app: tawazun
 spec:
-  storageClassName: manual
   accessModes:
     - ReadWriteOnce
+  volumeMode: Filesystem
+  storageClassName: standard
   resources:
     requests:
-      storage: 5Gi
+      storage: 3Gi
+  selector:
+    matchLabels:
+      app: tawazun
+     

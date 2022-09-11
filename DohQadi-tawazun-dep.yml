@@ -1,9 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: DohQadi-tawazun-dep
+  name: tawazun-deployment
   labels:
     name: DohaQadi
+    app: tawazun
 spec:
   replicas: 1
   selector:
@@ -15,11 +16,13 @@ spec:
         app: tawazun
     spec:
       containers:
-        - image: dohahq/tawazun:latest
-          name: tawazun
+        - name: tawazun
+          image: dohahq/tawazun:latest
+          ports:
+          - containerPort: 8080
           env:
             - name: DB_URL
-              value: mysql-tawazun
+              value: tawazun-mysql-service
             - name: DB_PORT
               value: '3306'  
             - name: DB_NAME
@@ -28,7 +31,6 @@ spec:
               value: root  
             - name: DB_PASSWORD
               value: DevOps2022 
-          ports:
-          - containerPort: 8080
+          
           
 
