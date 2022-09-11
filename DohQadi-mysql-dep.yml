@@ -33,16 +33,5 @@ spec:
         - name: mysql-persistent-storage
           persistentVolumeClaim:
             claimName: tawazn-mysql-pv-claim
-          livenessProbe:
-            httpGet:
-              path: 
-              port: 3306
-            initialDelaySeconds: 15
-            periodSeconds: 10
-          startupProbe:
-            httpGet:
-              path: 
-              port: 3306
-            failureThrehold: 30
-            periodSeconds: 10
+          
             

@@ -30,16 +30,5 @@ spec:
               value: DevOps2022 
           ports:
           - containerPort: 8080
-          livenessProbe:
-            httpGet:
-              path: /home
-              port: 8080
-            initialDelaySeconds: 15
-            periodSeconds: 10
-          startupProbe:
-            httpGet:
-              path: /home
-              port: 8080
-            failureThrehold: 30
-            periodSeconds: 10
+          
 
